@@ -766,6 +766,11 @@ public class Principal extends javax.swing.JFrame {
             for (int i = 0; i < listadealumnos.size(); i++) {
                 ta_matricula.append(listadealumnos.get(i).toString() + "\n");
             }
+            float promsat = 0;
+            for (int i = 0; i < listadealumnos.size(); i++) {
+                promsat += listadealumnos.get(i).getSatisfecho()/listadealumnos.size();
+            }
+            JOptionPane.showMessageDialog(rootPane, "Nivel de satisfabilidad general es de: "+promsat);
         }
     }//GEN-LAST:event_jb_simularMouseClicked
 
