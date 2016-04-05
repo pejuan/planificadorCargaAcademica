@@ -1,0 +1,42 @@
+Alumno{nombre=ALUMNO FR1, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR2, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR3, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR4, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR5, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR6, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR7, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR8, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR9, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR10, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR11, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR12, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR13, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR14, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR15, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR16, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR17, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR18, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR19, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR20, numCuenta=100909{Clase:FRANCES  Hora:8:30
+}Satisfacion(1-5):5.0
+Alumno{nombre=ALUMNO FR21, numCuenta=100909{}Satisfacion(1-5):0.0
+

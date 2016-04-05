@@ -5,7 +5,14 @@
  */
 package sat;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -593,6 +600,7 @@ public class Principal extends javax.swing.JFrame {
     private void jb_generarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_generarMouseClicked
         // TODO add your handling code here:
         //Ver que clases quieren matricular los alumnos
+        long inicio = System.nanoTime();
         if (generado) {
 
         } else if (finClases) {
@@ -618,26 +626,26 @@ public class Principal extends javax.swing.JFrame {
             for (int i = 0; i < listadeclases.size(); i++) {
                 max = 0;
                 for (int j = 0; j < listadeclases.size(); j++) {
-                    if (listadeclases.get(j).getAlumnosPosibles()>=max) {
+                    if (listadeclases.get(j).getAlumnosPosibles() >= max) {
                         ind2 = j;
                         max = listadeclases.get(j).getAlumnosPosibles();
                     }
                 }
                 listadeclases.get(ind2).setAlumnosPosibles(-1);
-                if (i==0) {
+                if (i == 0) {
                     listadeclases.get(ind2).setHora("7:00");
-                }else if(i==1){
+                } else if (i == 1) {
                     listadeclases.get(ind2).setHora("8:30");
-                }else if(i==2){
+                } else if (i == 2) {
                     listadeclases.get(ind2).setHora("10:10");
-                }else if(i==3){
+                } else if (i == 3) {
                     listadeclases.get(ind2).setHora("11:30");
-                }else if(i==4){
+                } else if (i == 4) {
                     listadeclases.get(ind2).setHora("13:00");
-                }else{
+                } else {
                     listadeclases.get(ind2).setHora("18:30");
                 }
-            }                        
+            }
             //Asignar maestros
             nuevaListaClases = new ArrayList();
             int min = 2000;
@@ -705,9 +713,20 @@ public class Principal extends javax.swing.JFrame {
 
             }
 
+            //Haciendo archivo
+            try {
+                PrintWriter writer = new PrintWriter("ArchivoDeClases.txt", "UTF-8");
+                writer.println(ta_resultado.getText());
+                writer.close();
+            } catch (Exception e) {
+
+            }
+
             generado = true;
         }
-
+        long fin = System.nanoTime();
+        fin -= inicio;
+        System.out.println("Generacion: " + fin);
     }//GEN-LAST:event_jb_generarMouseClicked
 
     private void jb_finMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_finMouseClicked
@@ -765,6 +784,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jb_simularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_simularMouseClicked
         // TODO add your handling code here:
+        long inicio = System.nanoTime();
         if (finClases) {
             for (int i = 0; i < listadealumnos.size(); i++) {
                 for (int j = 0; j < listadealumnos.get(i).getClasesPreferidas().size(); j++) {
@@ -786,10 +806,33 @@ public class Principal extends javax.swing.JFrame {
             }
             float promsat = 0;
             for (int i = 0; i < listadealumnos.size(); i++) {
-                promsat += listadealumnos.get(i).getSatisfecho()/listadealumnos.size();
+                promsat += listadealumnos.get(i).getSatisfecho() / listadealumnos.size();
             }
-            JOptionPane.showMessageDialog(rootPane, "Nivel de satisfabilidad general es de: "+promsat);
+            long fin = System.nanoTime();
+            fin -= inicio;
+            System.out.println("Simulacion: " + fin);
+            JOptionPane.showMessageDialog(rootPane, "Nivel de satisfabilidad general es de: " + promsat);
+
+            String text = ta_matricula.getText();
+            BufferedWriter output = null;
+            try {
+                File file = new File("ArchivoMatricula.txt");
+                output = new BufferedWriter(new FileWriter(file));
+                output.write(text);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (output != null) {
+                    try {
+                        output.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
         }
+
+
     }//GEN-LAST:event_jb_simularMouseClicked
 
     private void jb_cargarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_cargarDatosMouseClicked
@@ -806,7 +849,7 @@ public class Principal extends javax.swing.JFrame {
             listadeclases.add(new Clase("DEPORTE", "DD90", "General"));
             listadeclases.add(new Clase("ARTE", "A90", "Arquitectura"));
             listadeclases.add(new Clase("FRANCES", "F90", "General"));
-            
+
             listadealumnos.add(new Alumno("ALUMNO FR1", "100909"));
             listadealumnos.add(new Alumno("ALUMNO FR2", "100909"));
             listadealumnos.add(new Alumno("ALUMNO FR3", "100909"));
@@ -843,7 +886,7 @@ public class Principal extends javax.swing.JFrame {
                 listadealumnos.get(i).addClasePreferida(listadeclases.get(10));
             }
             JOptionPane.showMessageDialog(rootPane, "Se han cargado los datos");
-            
+
         }
 
     }//GEN-LAST:event_jb_cargarDatosMouseClicked

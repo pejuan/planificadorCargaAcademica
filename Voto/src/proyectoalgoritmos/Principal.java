@@ -599,6 +599,7 @@ public class Principal extends javax.swing.JFrame {
     private void jb_generarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_generarMouseClicked
         // TODO add your handling code here:
         //Ver que clases quieren matricular los alumnos
+        long inicio = System.nanoTime();
         if (generado) {
 
         } else if (finClases) {
@@ -689,7 +690,9 @@ public class Principal extends javax.swing.JFrame {
 
             generado = true;
         }
-
+        long fin = System.nanoTime();
+        long tot = fin - inicio;
+        System.out.println("Generacion:" + tot);
     }//GEN-LAST:event_jb_generarMouseClicked
 
     private void jb_finMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_finMouseClicked
@@ -747,6 +750,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jb_simularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_simularMouseClicked
         // TODO add your handling code here:
+        long inicio = System.nanoTime();
         if (finClases) {
             for (int i = 0; i < listadealumnos.size(); i++) {
                 for (int j = 0; j < listadealumnos.get(i).getClasesPreferidas().size(); j++) {
@@ -768,10 +772,14 @@ public class Principal extends javax.swing.JFrame {
             }
             float promsat = 0;
             for (int i = 0; i < listadealumnos.size(); i++) {
-                promsat += listadealumnos.get(i).getSatisfecho()/listadealumnos.size();
+                promsat += listadealumnos.get(i).getSatisfecho() / listadealumnos.size();
             }
-            JOptionPane.showMessageDialog(rootPane, "Nivel de satisfabilidad general es de: "+promsat);
+            long fin = System.nanoTime();
+            fin -= inicio;
+            System.out.println("Simulacion:" + fin);
+            JOptionPane.showMessageDialog(rootPane, "Nivel de satisfabilidad general es de: " + promsat);
         }
+
     }//GEN-LAST:event_jb_simularMouseClicked
 
     private void jb_cargarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_cargarDatosMouseClicked
@@ -788,7 +796,7 @@ public class Principal extends javax.swing.JFrame {
             listadeclases.add(new Clase("DEPORTE", "DD90", "General"));
             listadeclases.add(new Clase("ARTE", "A90", "Arquitectura"));
             listadeclases.add(new Clase("FRANCES", "F90", "General"));
-            
+
             listadealumnos.add(new Alumno("ALUMNO FR1", "100909"));
             listadealumnos.add(new Alumno("ALUMNO FR2", "100909"));
             listadealumnos.add(new Alumno("ALUMNO FR3", "100909"));
@@ -825,7 +833,7 @@ public class Principal extends javax.swing.JFrame {
                 listadealumnos.get(i).addClasePreferida(listadeclases.get(10));
             }
             JOptionPane.showMessageDialog(rootPane, "Se han cargado los datos");
-            
+
         }
 
     }//GEN-LAST:event_jb_cargarDatosMouseClicked
